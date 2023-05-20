@@ -6,7 +6,7 @@
 </div>
 <hr/>
 <div class="text-center">
-    <button class="btn btn-primary">Sort by Oldest</button>
+    <button class="btn btn-primary" @onclick="HandleSort">Sort by @(IsNewest ? "Oldest" : "Newest")</button>
 </div>
 
 @foreach (var blog in BlogCards)

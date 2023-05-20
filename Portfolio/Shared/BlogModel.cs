@@ -1,7 +1,5 @@
 namespace Portfolio.Shared;
 
-
-
 public class BlogModel
 {
     public string title;
@@ -11,7 +9,6 @@ public class BlogModel
     public List<VideoUrlModel>? videoUrls;
     public string fullDesc;
     public string Id = Guid.NewGuid().ToString();
-
 
     public BlogModel(string title, DateTime date, string previewDesc, string routeName, string fullDesc, List<VideoUrlModel>? videoUrls = null)
     {
@@ -28,3 +25,4 @@ public class BlogModel
         return $"title: {title}, date: {date}, previewDesc: {previewDesc}, routeName: {routeName},";
     }
 }
+

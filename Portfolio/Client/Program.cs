@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Personal_Portfolio.Services;
+using Personal_Portfolio.Repository;
 using Portfolio.Client;
 using Portfolio.Interfaces;
 using Portfolio.Shared;
@@ -12,5 +12,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 builder.Services.AddScoped<IBlogsDataRepository<BlogModel>, BlogsDataRepository>();
+builder.Services.AddScoped<IProjectsDataRepository<ProjectCardModel>, ProjectsDataRepository>();
 
 await builder.Build().RunAsync();

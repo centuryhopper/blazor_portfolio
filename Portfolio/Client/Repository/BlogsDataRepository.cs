@@ -1,7 +1,7 @@
 using Portfolio.Interfaces;
 using Portfolio.Shared;
 
-namespace Personal_Portfolio.Services;
+namespace Personal_Portfolio.Repository;
 
 
 public class BlogsDataRepository : IBlogsDataRepository<BlogModel>
