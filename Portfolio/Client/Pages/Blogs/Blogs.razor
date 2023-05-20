@@ -1,0 +1,22 @@
+@page "/blogs"
+@inherits BlogsBase
+
+<div class="text-center">
+    <h2>All Blogs</h2>
+</div>
+<hr/>
+<div class="text-center">
+    <button class="btn btn-primary">Sort by Oldest</button>
+</div>
+
+@foreach (var blog in BlogCards)
+{
+    <div class="card mx-auto mt-3 w-75">
+        <div class="card-body">
+            <a href="@($"blogs/{blog.Id}")">@blog.title</a>
+            <h5 class="card-title">@blog.date.ToString("MM-dd-yyyy")</h5>
+            <p class="card-text">@blog.previewDesc</p>
+        </div>
+    </div>
+}
+
