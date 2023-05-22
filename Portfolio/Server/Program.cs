@@ -1,4 +1,7 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using Portfolio.Server.Contexts;
+using Portfolio.Server.Interfaces;
+using Portfolio.Server.Repository;
+using Portfolio.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<DapperContext>();
+// blogs should definitely be singleton or else the individual blog id's will change everytime
+builder.Services.AddSingleton<IBlogsDataRepository<BlogModel>, BlogsDataRepository>();
+builder.Services.AddSingleton<IProjectsDataRepository<ProjectCardModel>, ProjectsDataRepository>();
+builder.Services.AddScoped<IContactsDataRepository<ContactMeModel>, ContactsDataRepository>();
 
 string BlazorClientPolicy = "AllowAllOrigins";
 

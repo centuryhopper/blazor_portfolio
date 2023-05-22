@@ -10,16 +10,19 @@
 
     <div class="input-group">
         <label for="txtSearch" class="form-label">Search by title</label>
-        <input type="text" class="form-control m-3" @bind-value="SearchTerm" placeholder="Search project by title"/>
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="submit" @onclick="HandleSearchFilter">Search</button>
-        </div>
+        <input type="text" class="form-control m-3" placeholder="Search project by title"
+        @bind="SearchTerm"
+        @oninput="HandleSearchFilter" />
     </div>
 
     <div class="row g-3">
-        @if (projects.Any())
+        @if (Projects is null || !Projects.Any())
         {
-            @foreach (var info in projects)
+            <p>No results found from your search query :(</p>
+        }
+        else
+        {
+            @foreach (var info in Projects)
             {
                 <div class="col-12 col-md-6 col-lg-6 col-sm-6">
                     <div class="card">
@@ -36,10 +39,6 @@
                     </div>
                 </div>
             }
-        }
-        else
-        {
-            <p>No results found from your search query :(</p>
         }
     </div>
 </div>

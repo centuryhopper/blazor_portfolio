@@ -1,7 +1,7 @@
-namespace Portfolio.Interfaces;
+namespace Portfolio.Server.Interfaces;
 
 public interface IProjectsDataRepository<T>
 {
-    IEnumerable<T> GetData();
+    Task<string> GetData();
     IEnumerable<T> Search(string searchTerm);
 }

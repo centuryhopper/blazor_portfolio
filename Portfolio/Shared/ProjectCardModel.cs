@@ -18,4 +18,9 @@ public class ProjectCardModel
         this.sourceCodeLink = sourceCodeLink;
     }
 
+    public override string ToString()
+    {
+        return $"{nameof(imgUrl)}:{imgUrl}, {nameof(title)}:{title}, {nameof(description)}:{description}, {nameof(gameLink)}:{gameLink}, {nameof(sourceCodeLink)}:{sourceCodeLink}, ";
+    }
+
 }

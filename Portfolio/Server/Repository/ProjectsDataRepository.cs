@@ -1,7 +1,11 @@
 
 
-using Portfolio.Interfaces;
+using Newtonsoft.Json;
+using Portfolio.Server.Interfaces;
 using Portfolio.Shared;
+
+namespace Portfolio.Server.Repository;
+
 
 public class ProjectsDataRepository : IProjectsDataRepository<ProjectCardModel>
 {
@@ -27,9 +31,10 @@ public class ProjectsDataRepository : IProjectsDataRepository<ProjectCardModel>
             ),
         };
     }
-    public IEnumerable<ProjectCardModel> GetData()
+    public async Task<string> GetData()
     {
-        return projects;
+        await Task.Run(()=>{});
+        return JsonConvert.SerializeObject(projects, Formatting.Indented);
     }
 
     public IEnumerable<ProjectCardModel> Search(string searchTerm)

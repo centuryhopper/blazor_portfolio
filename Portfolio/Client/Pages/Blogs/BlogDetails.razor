@@ -2,21 +2,28 @@
 @inherits BlogDetailsBase
 
 
-<div class="d-flex flex-column min-vh-100 justify-con/tent-center align-items-center">
-    <h2>@Model.title</h2>
-    <hr/>
-    <div>
-        @Model.fullDesc
-    </div>
+@if (Model is null)
+{
+    <p class="text-danger">blog not found :(</p>
+}
+else
+{
+    <div class="d-flex flex-column min-vh-100 justify-con/tent-center align-items-center">
+        <h2>@Model.title</h2>
+        <hr/>
+        <div>
+            @Model.fullDesc
+        </div>
 
-    @if (Model.videoUrls is not null)
-    {
-        @foreach (var videoUrlModel in @Model.videoUrls)
+        @if (Model.videoUrls is not null)
         {
-            <div class="video-player">
-            <iframe class="embedded-video" src="@videoUrlModel.url" title="@videoUrlModel.title" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+            @foreach (var videoUrlModel in @Model.videoUrls)
+            {
+                <div class="video-player">
+                <iframe class="embedded-video" src="@videoUrlModel.url" title="@videoUrlModel.title" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            }
         }
-    }
-    <hr/>
-</div>
+        <hr/>
+    </div>
+}

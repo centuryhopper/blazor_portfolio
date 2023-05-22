@@ -1,0 +1,47 @@
+@* @page "/contact"
+@inherits ContactBase
+
+<h1 class="text-center">Contact Me</h1>
+
+<div class="text-center">
+    <p>
+    I am excited to meet and work with you! We progress better together so please don't hesitate to contact me using the form below.
+    </p>
+</div>
+
+<div class="container-fluid">
+    <EditForm Model="@model" OnValidSubmit="HandlePostContact">
+        <div class="card">
+            <h4 class="text-center card-header">
+                Contact Form
+            </h4>
+            <div class="card-body">
+                <DataAnnotationsValidator/>
+                <p class="form-group">
+                    <label class="m-2">Name</label>
+                    <InputText @bind-Value="model.Name" class="form-control" />
+                    <ValidationMessage For="@(() => model.Name)"/>
+                </p>
+                <p class="form-group">
+                    <label class="m-2">Email</label>
+                    <InputText @bind-Value="model.Email" class="form-control" />
+                    <ValidationMessage For="@(() => model.Email)"/>
+                </p>
+                <p class="form-group">
+                    <label class="m-2">Subject</label>
+                    <InputText @bind-Value="model.Subject" class="form-control" />
+                    <ValidationMessage For="@(() => model.Subject)"/>
+                </p>
+                <p class="form-group">
+                    <label class="m-2">Message</label>
+                    <InputTextArea @bind-Value="model.Message" class="form-control" />
+                    <ValidationMessage For="@(() => model.Message)"/>
+                </p>
+            </div>
+            <div class="m-3">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </EditForm>
+</div>
+ *@

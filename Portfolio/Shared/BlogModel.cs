@@ -8,10 +8,11 @@ public class BlogModel
     public string routeName;
     public List<VideoUrlModel>? videoUrls;
     public string fullDesc;
-    public string Id = Guid.NewGuid().ToString();
+    public string Id;
 
-    public BlogModel(string title, DateTime date, string previewDesc, string routeName, string fullDesc, List<VideoUrlModel>? videoUrls = null)
+    public BlogModel(string Id, string title, DateTime date, string previewDesc, string routeName, string fullDesc, List<VideoUrlModel>? videoUrls = null)
     {
+        this.Id = Id;
         this.title = title;
         this.date = date;
         this.previewDesc = previewDesc;
@@ -22,7 +23,7 @@ public class BlogModel
 
     public override string ToString()
     {
-        return $"title: {title}, date: {date}, previewDesc: {previewDesc}, routeName: {routeName},";
+        return $"{nameof(Id)}: {Id}, {nameof(title)}: {title}, {nameof(date)}: {date}, {nameof(previewDesc)}: {previewDesc}, {nameof(routeName)}: {routeName},";
     }
 }
 

@@ -9,14 +9,21 @@
     <button class="btn btn-primary" @onclick="HandleSort">Sort by @(IsNewest ? "Oldest" : "Newest")</button>
 </div>
 
-@foreach (var blog in BlogCards)
+@if (BlogCards is null || !BlogCards.Any())
 {
-    <div class="card mx-auto mt-3 w-75">
-        <div class="card-body">
-            <a href="@($"blogs/{blog.Id}")">@blog.title</a>
-            <h5 class="card-title">@blog.date.ToString("MM-dd-yyyy")</h5>
-            <p class="card-text">@blog.previewDesc</p>
+    <p class="text-danger">No blogs found.</p>
+}
+else
+{
+    @foreach (var blog in BlogCards)
+    {
+        <div class="card mx-auto mt-3 w-75">
+            <div class="card-body">
+                <a href="@($"blogs/{blog.Id}")">@blog.title</a>
+                <h5 class="card-title">@blog.date.ToString("MM-dd-yyyy")</h5>
+                <p class="card-text">@blog.previewDesc</p>
+            </div>
         </div>
-    </div>
+    }
 }
 
