@@ -1,5 +1,8 @@
-@* @page "/contact"
+@page "/contact"
 @inherits ContactBase
+@inject IModalService Modal
+
+
 
 <h1 class="text-center">Contact Me</h1>
 
@@ -10,7 +13,7 @@
 </div>
 
 <div class="container-fluid">
-    <EditForm Model="@model" OnValidSubmit="HandlePostContact">
+    <EditForm Model="@Model" OnValidSubmit="HandlePostContact">
         <div class="card">
             <h4 class="text-center card-header">
                 Contact Form
@@ -19,29 +22,29 @@
                 <DataAnnotationsValidator/>
                 <p class="form-group">
                     <label class="m-2">Name</label>
-                    <InputText @bind-Value="model.Name" class="form-control" />
-                    <ValidationMessage For="@(() => model.Name)"/>
+                    <InputText @bind-Value="Model.Name" class="form-control" />
+                    <ValidationMessage For="@(() => Model.Name)"/>
                 </p>
                 <p class="form-group">
                     <label class="m-2">Email</label>
-                    <InputText @bind-Value="model.Email" class="form-control" />
-                    <ValidationMessage For="@(() => model.Email)"/>
+                    <InputText @bind-Value="Model.Email" class="form-control" />
+                    <ValidationMessage For="@(() => Model.Email)"/>
                 </p>
                 <p class="form-group">
                     <label class="m-2">Subject</label>
-                    <InputText @bind-Value="model.Subject" class="form-control" />
-                    <ValidationMessage For="@(() => model.Subject)"/>
+                    <InputText @bind-Value="Model.Subject" class="form-control" />
+                    <ValidationMessage For="@(() => Model.Subject)"/>
                 </p>
                 <p class="form-group">
                     <label class="m-2">Message</label>
-                    <InputTextArea @bind-Value="model.Message" class="form-control" />
-                    <ValidationMessage For="@(() => model.Message)"/>
+                    <InputTextArea @bind-Value="Model.Message" class="form-control" />
+                    <ValidationMessage For="@(() => Model.Message)"/>
                 </p>
             </div>
             <div class="m-3">
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" @onclick="@(()=>Modal.Show<PopupDialog>("notice"))">Submit</button>
             </div>
         </div>
     </EditForm>
 </div>
- *@
+

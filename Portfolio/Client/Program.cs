@@ -1,3 +1,4 @@
+using Blazored.Modal;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Options;
@@ -13,6 +14,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddHttpClient("API", options => {
     options.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
 });
+
+builder.Services.AddBlazoredModal();
 
 
 
