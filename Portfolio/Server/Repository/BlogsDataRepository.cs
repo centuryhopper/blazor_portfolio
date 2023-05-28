@@ -25,8 +25,8 @@ public class BlogsDataRepository : IBlogsDataRepository<BlogModel>
                 new VideoUrlModel {title = "july_4th_2022_fireworks_lake_cherokee_FL", url = "https://www.youtube.com/embed/JDOvUZ3updU"}
             }),
 
-            new BlogModel(Guid.NewGuid().ToString(), "My Linux-distro Hopping Journey And My Choice of Linux Distro", new DateTime(2022, 6, 25), "Distro hopping was a time-consuming but rewarding experience!","linuxDistroTalk",
-            "To be added"),
+            new BlogModel(Guid.NewGuid().ToString(), "My Linux-distro Hopping Journey", new DateTime(2022, 6, 25), "Distro hopping was a time-consuming but rewarding experience!","linuxDistroTalk",
+            "I wanted to get back into linux this Summer since I used Ubuntu back in my computer science class and really enjoyed it. Back then I did not have enough time to delve into other distros because of juggling with all my classes, so I thought I'd take the time now to get into it. Earlier in May I decided to try out Pop OS because my friend recommended that distro for beginners and it is very simple to set up and get going. PopOS is a distro based on Ubuntu (which is then based on Debian), and I used it for about a month before I felt ready to move onto more intermediate user distros like arch-based ones."),
 
             new BlogModel(Guid.NewGuid().ToString(), "Last Semester of Grad School", new DateTime(2022, 8, 26), "My final semester of graduate school has begun!","finalSemester",
 

@@ -6,6 +6,9 @@ using Portfolio.Shared;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// TODO: you shouldn't be pushing connection string to github but im doing it anyway for simplicity's sake
+
+// TODO: create more tables for other navbar selections like blogs, skills, and projects
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
